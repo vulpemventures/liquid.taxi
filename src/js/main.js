@@ -62,7 +62,7 @@ const SAMPLE_RAW_TX = "0200000000028ccaf013fb00eaa3f1ebdf6cef1815319d9b3944ec993
         document.getElementById("hash-text").innerHTML = 
           `<a target="_blank" href="http://regtest.nigiri.vulpem.com/order/${hash}">${hash}</a>`;  
         document.getElementById("qr-image").src = 
-          "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + paymentRequest;
+          "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=" + paymentRequest;
 
       })
       .catch(function (error) {
