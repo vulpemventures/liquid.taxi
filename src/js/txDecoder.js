@@ -1,4 +1,4 @@
-'use strict'
+/* 'use strict'
 var bitcoin = require('bitcoinjs-lib');
 
 var decodeFormat = function (tx) {
@@ -77,3 +77,4 @@ class TxDecoder {
 }
 
 module.exports = TxDecoder;
+ */
