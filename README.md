@@ -12,7 +12,7 @@ $ npm install
 * Serve
 
 ```sh
-$ npm run server
+$ npm run serve
 ```
 
 # Build
