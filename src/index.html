@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="Liquid.Taxi" />
+	<meta property="og:url" content="https://liquid.taxi" />
+	<meta property="og:type" content="website" />
+	<meta property="og:description" content="" />
+	<meta property="og:image"
+		content="https://raw.githubusercontent.com/vulpemventures/liquid.taxi/master/src/images/taxi-social.png" />
+
+	<title>Liquid.Taxi</title>
+
+	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+
+	<link href="https://fonts.googleapis.com/css?family=Heebo:400,700|IBM+Plex+Sans:600" rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css">
+	<script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+</head>
+
+<body class="is-boxed has-animations">
+	<div class="body-wrap boxed-container">
+		<header class="site-header">
+			<div class="container">
+				<div class="site-header-inner">
+					<div class="brand header-brand">
+						<h1 class="m-0">
+							<a href="#">
+								<span class="header-logo-image asset-light">🚕</span>
+								<span class="header-logo-image asset-dark">🚕</span>
+							</a>
+						</h1>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<main>
+			<section class="hero">
+				<div class="container">
+					<div class="hero-inner">
+						<div class="hero-copy">
+							<h1 class="hero-title mt-0">Liquid 🚕 Taxi</h1>
+							<p class="hero-paragraph"> Do you need L-BTC to move around your Liquid assets? Pay fees with ⚡️ Lightning
+								Network </p>
+							<div class="hero-cta">
+								<a class="button button-primary" href="#topup">Get started</a>
+								<!-- 	<div class="lights-toggle">
+									<input id="lights-toggle" type="checkbox" name="lights-toggle" class="switch" checked="checked">
+									<label for="lights-toggle" class="text-xs"><span>Turn me <span
+												class="label-text">dark</span></span></label>
+								</div>  -->
+							</div>
+						</div>
+						<div class="hero-media">
+							<div class="header-illustration">
+								<img class="header-illustration-image asset-light" src="images/header-illustration-light.svg"
+									alt="Header illustration">
+								<img class="header-illustration-image asset-dark" src="images/header-illustration-dark.svg"
+									alt="Header illustration">
+							</div>
+
+							<div class="hero-media-container">
+								<img class="hero-media-image asset-dark" src="images/taxi.png" alt="Hero media">
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section id="topup" class="features section">
+				<div class="container">
+					<div class="features-inner section-inner has-bottom-divider">
+						<div class="features-header text-center">
+							<div class="container-sm">
+								<h2 class="section-title mt-0">Liquid bitcoins top-up service</h2>
+								<p class="section-paragraph">Provide a transaction in <strong>hex</strong> format spending your own
+									Liquid assets. Then pay the invoice using
+									your ⚡️LN wallet.</p>
+								<p>The inputs <strong>MUST</strong> be signed with
+									<code> <i> SIGHASH_NONE | SIGHASH_ANYONECANPAY </i> </code> </p>
+								<div class="features-image">
+									<form style="margin:0 auto;">
+										<div>
+											<div id="request-invoice">
+												<div class="field-grouped">
+													<input id="tx-input" class="input" type="text" placeholder="Liquid transaction (hex format)">
+													<button id='topup-button' class="button button-primary">Top-up</button>
+												</div>
+												<br />
+											 	<button class="button" id="use-sample-button"> Use a Liquid testnet sample</button>
+											</div>
+											<div id="invoice" style="visibility: hidden;">
+												<input id="qr-image" type="image" alt="Invoice" disabled>
+												<div class="field-grouped">
+													<input id="invoice-input" readonly class="input" type="text">
+													<button id='copy-invoice-button' class="button button-primary">Copy</button>
+												</div>
+												<br />
+												<p class="text-sm mt-0" id="fees-text"></p>
+												<br />
+												<p class="text-sm mt-0">Keep this in order to query the order's status later on:</p>
+												<p id="hash-text" class="text-sm mt-0"></p>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+	
+			<section class="cta section">
+				<div class="container-sm">
+					<div class="cta-inner section-inner">
+						<div class="cta-header text-center">
+							<h2 class="section-title mt-0">Are you looking for a subscription plan?</h2>
+							<p>
+								<a class="button button-primary" target="_blank" href="mailto:hello@vulpem.com">Contact us</a>
+							</p>
+						</div>
+					</div>
+			</section>
+		</main>
+
+		<footer class="site-footer has-top-divider">
+			<div class="container">
+				<div class="site-footer-inner">
+					<div>
+						<span class="header-logo-image asset-light">🚕</span>
+						<span class="header-logo-image asset-dark">🚕</span>
+						&copy; 2019 <a href="https://vulpem.com" target="_blank">Vulpem Ventures</a>, all rights reserved -
+						Design by <a href="https://cruip.com" target="_blank">Cruip</a>
+					</div>
+
+				</div>
+			</div>
+		</footer>
+	</div>
+
+	<script src="js/main.js"></script>
+</body>
+
+</html>
