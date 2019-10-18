@@ -44,7 +44,7 @@ const API_URL = "https://jrd43eud2i.execute-api.eu-west-1.amazonaws.com/staging/
     axios.post(
       API_URL,
       {
-        signedTx: rawtx,
+        txid: rawtx,
         satPerByte: 1
       },
       {
