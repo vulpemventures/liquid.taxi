@@ -52,7 +52,8 @@ const API_URL = "https://jrd43eud2i.execute-api.eu-west-1.amazonaws.com/staging/
       })
       .then(function ({data}) {
         //handle success
-        const { paymentRequest, hash, fees, spread, total } = data;
+        const { paymentRequest, hash, amount } = data;
+        const { fees, spread, total } = amount;
 
         document.getElementById("request-invoice").style.visibility = "hidden";
         document.getElementById("invoice").style.visibility = "visible";
