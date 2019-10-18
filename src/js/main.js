@@ -90,7 +90,7 @@ const API_URL = "https://jrd43eud2i.execute-api.eu-west-1.amazonaws.com/staging/
   function onCopyNodeUriClik(event) {
     event.preventDefault();
     //COpy to clipboard
-    copy(document.getElementById("invoice-input").value);
+    copy("020e86ecfac59831ae80982f6bb0809210a10db640c2bc3f23697b57e7eb9cc4e2@testnet.vulpem.com:9735");
   }
 
   function onUseSampleClik(event) {
