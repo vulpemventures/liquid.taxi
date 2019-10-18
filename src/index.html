@@ -44,7 +44,7 @@
 				<div class="container">
 					<div class="hero-inner">
 						<div class="hero-copy">
-							
+
 							<h1 class="hero-title mt-0">Liquid 🚕 Taxi</h1>
 							<p class="hero-paragraph"> Do you need to move around your Liquid assets? Pay L-BTC fees with ⚡️ Lightning
 								Network </p>
@@ -93,7 +93,7 @@
 													<button id='topup-button' class="button button-primary">Top-up</button>
 												</div>
 												<br />
-											 	<button class="button" id="use-sample-button"> Use a Liquid testnet sample</button>
+												<button class="button" id="use-sample-button"> Use a Liquid testnet sample</button>
 											</div>
 											<div id="invoice" style="visibility: hidden;">
 												<input id="qr-image" type="image" alt="Invoice" disabled>
@@ -105,7 +105,6 @@
 												<p class="text-sm mt-0" id="fees-text"></p>
 												<br />
 												<p class="text-sm mt-0">Keep this in order to query the order's status later on:</p>
-												<p id="hash-text" class="text-sm mt-0"></p>
 											</div>
 										</div>
 									</form>
@@ -116,7 +115,21 @@
 				</div>
 			</section>
 
-	
+			<section id="connect" class="section">
+				<div class="container text-center">
+					<h1 class="section-title mt-0">Connect to our node</h1>
+					<img style="margin:0 auto;" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=020e86ecfac59831ae80982f6bb0809210a10db640c2bc3f23697b57e7eb9cc4e2@testnet.vulpem.com:9735" />
+					<br />
+					<button id='copy-node-uri'>
+						<code>
+							020e86ecfac59831ae80982f6bb0809210a10db640c2bc3f23697b57e7eb9cc4e2@testnet.vulpem.com:9735
+						</code>
+					</button>
+					<br /> 
+				</div>
+			</section>
+
+
 			<section class="cta section">
 				<div class="container-sm">
 					<div class="cta-inner section-inner">

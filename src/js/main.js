@@ -63,7 +63,7 @@ const API_URL = "https://jrd43eud2i.execute-api.eu-west-1.amazonaws.com/staging/
         document.getElementById("hash-text").innerHTML = 
           `<a target="_blank" href="${API_URL}/${hash}">${hash}</a>`;  
         document.getElementById("qr-image").src = 
-          "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=" + paymentRequest;
+          "https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=" + paymentRequest;
 
       })
       .catch(function (error) {
@@ -87,6 +87,12 @@ const API_URL = "https://jrd43eud2i.execute-api.eu-west-1.amazonaws.com/staging/
 
   }
 
+  function onCopyNodeUriClik(event) {
+    event.preventDefault();
+    //COpy to clipboard
+    copy(document.getElementById("invoice-input").value);
+  }
+
   function onUseSampleClik(event) {
     event.preventDefault();    
     document.getElementById("tx-input").value = SAMPLE_RAW_TX;
@@ -95,6 +101,8 @@ const API_URL = "https://jrd43eud2i.execute-api.eu-west-1.amazonaws.com/staging/
   document.getElementById("use-sample-button").addEventListener("click", onUseSampleClik);
   document.getElementById("topup-button").addEventListener("click", onButtonClik);
   document.getElementById("copy-invoice-button").addEventListener("click", onCopyClik);
+  document.getElementById("copy-invoice-button").addEventListener("click", onCopyNodeUriClik);
+
 
 
 }())
