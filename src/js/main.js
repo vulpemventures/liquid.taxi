@@ -101,7 +101,7 @@ const API_URL = "https://jrd43eud2i.execute-api.eu-west-1.amazonaws.com/staging/
   document.getElementById("use-sample-button").addEventListener("click", onUseSampleClik);
   document.getElementById("topup-button").addEventListener("click", onButtonClik);
   document.getElementById("copy-invoice-button").addEventListener("click", onCopyClik);
-  document.getElementById("copy-invoice-button").addEventListener("click", onCopyNodeUriClik);
+  document.getElementById("copy-node-uri").addEventListener("click", onCopyNodeUriClik);
 
 
 
