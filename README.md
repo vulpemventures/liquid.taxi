@@ -1,29 +1,31 @@
 # 🚕 Liquid.taxi
 Pay Liquid fees using Lightning Network. 
 
+![Image of Liquid Taxi](https://raw.githubusercontent.com/vulpemventures/liquid.taxi/master/src/images/taxi-social.jpg)
+
 # Development 
 
 * Install deps
 
 ```sh
-$ npm install
+$ yarn
 ```
 
 * Serve
 
 ```sh
-$ npm run serve
+$ yarn serve
 ```
 
 # Build
  
 ```sh
-$ npm run build
+$ yarn build
 ```
 
 # Deploy Github Pages
 
 ```sh
-$ npm run deploy
+$ yarn deploy
 ```
 
