@@ -44,7 +44,7 @@ const API_URL = "https://testnet.vulpem.com/order";
     axios.post(
       API_URL,
       {
-        txid: rawtx,
+        rawtx,
         satPerByte: 1
       },
       {
