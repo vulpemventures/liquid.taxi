@@ -79,11 +79,10 @@
 						<div class="features-header text-center">
 							<div class="container-sm">
 								<h2 class="section-title mt-0">Liquid bitcoins top-up service</h2>
-								<p class="section-paragraph">Provide a transaction in <strong>hex</strong> format spending your own
+								<p class="section-paragraph">Provide a PSBT transaction <strong>base64</strong> encoded spending your own
 									Liquid assets. Then pay the invoice using
 									your ⚡️LN wallet.</p>
-								<p>The inputs <strong>MUST</strong> be signed with
-									<code> <i> SIGHASH_NONE | SIGHASH_ANYONECANPAY </i> </code> </p>
+								<p>The transaction <strong>MUST</strong> be UNCONFIDENTIAL </p>
 								<div class="features-image">
 									<form style="margin:0 auto;">
 										<div>
@@ -93,7 +92,7 @@
 													<button id='topup-button' class="button button-primary">Top-up</button>
 												</div>
 												<br />
-												<button class="button" id="use-sample-button"> Use a Liquid testnet sample</button>
+												<button class="button" id="use-sample-button"> Use a Liquid regtest sample</button>
 											</div>
 											<div id="invoice" style="visibility: hidden;">
 												<input id="qr-image" type="image" alt="Invoice QR Code" disabled>
@@ -106,6 +105,7 @@
 												<br />
 												<p class="text-sm mt-0">Keep this in order to query the order's status later on:</p>
 												<p id="hash-text" class="text-sm mt-0"></p>
+												<p>The resulting PSBT will be under the key <code><i> signedTx </i></code></p>
 											</div>
 										</div>
 									</form>
@@ -119,11 +119,11 @@
 			<section id="connect" class="section">
 				<div class="container text-center">
 					<h1 class="section-title mt-0">Connect to our node</h1>
-					<img style="margin:0 auto;" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=020e86ecfac59831ae80982f6bb0809210a10db640c2bc3f23697b57e7eb9cc4e2@testnet.vulpem.com:9735" />
+					<img style="margin:0 auto;" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=02eadbd9e7557375161df8b646776a547c5cbc2e95b3071ec81553f8ec2cea3b8c@18.191.253.246:9735" />
 					<br />
 					<button id="copy-node-uri">
 						<code id="node-uri">
-							020e86ecfac59831ae80982f6bb0809210a10db640c2bc3f23697b57e7eb9cc4e2@testnet.vulpem.com:9735
+							02eadbd9e7557375161df8b646776a547c5cbc2e95b3071ec81553f8ec2cea3b8c@18.191.253.246:9735
 						</code>
 					</button>
 					<br /> 
@@ -135,7 +135,7 @@
 				<div class="container-sm">
 					<div class="cta-inner section-inner">
 						<div class="cta-header text-center">
-							<h2 class="section-title mt-0">Are you looking for a subscription plan?</h2>
+							<h2 class="section-title mt-0">Are you looking for a subscription plan or different method of payments?</h2>
 							<p>
 								<a class="button button-primary" target="_blank" href="mailto:hello@vulpem.com">Contact us</a>
 							</p>
@@ -150,7 +150,7 @@
 					<div>
 						<span class="header-logo-image asset-light">🚕</span>
 						<span class="header-logo-image asset-dark">🚕</span>
-						&copy; 2019 <a href="https://vulpem.com" target="_blank">Vulpem Ventures</a>, all rights reserved -
+						&copy; 2020 <a href="https://vulpem.com" target="_blank">Vulpem Ventures</a>, all rights reserved -
 						Design by <a href="https://cruip.com" target="_blank">Cruip</a>
 					</div>
 

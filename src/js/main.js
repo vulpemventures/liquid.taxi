@@ -1,13 +1,15 @@
 const axios = require('axios');
 const copy = require('copy-to-clipboard');
 
-const SAMPLE_RAW_TX = "0200000000028ccaf013fb00eaa3f1ebdf6cef1815319d9b3944ec993e6c5425c2d89a025fbf000000006a4730440220779efe60dcf5e9c3b3f8bf449209d7df1ddb7db050a0b112b6fd9b774624a7180220123765641f65d25ad7dbf819edc3e42e0b49eb0bf1cc360a112e87f3e1bd0a4282210312ed6e5bc8931adda48e0254737a2c037f84e3ccc2c2ebc2a21f27c66274bb4affffffff18990fab5aea080f4ee7b8e874e1703defc860412a913ea6fa2340a212c7b5ba010000006a473044022041c62e4199dc591db30af0a1d2d8e314712a3eb4599851943b4466c5f1ca1abc0220529811a4dec70b71743ef9ef610723ce1f6d5e5748f54917f1a199c9547d8af182210312ed6e5bc8931adda48e0254737a2c037f84e3ccc2c2ebc2a21f27c66274bb4affffffff0201d31114fce70394c1f9d3547501b4b9d36f420236ec64199154566434885acf2d0100000002cb417800001976a91415bfa3930707352485408e631c0f97ef5f5fdbde88ac01d31114fce70394c1f9d3547501b4b9d36f420236ec64199154566434885acf2d01000000012a05f200001976a91450a410115f0a7d8a99472e47d1928ff8086948c888ac00000000";
-const API_URL = "https://testnet.vulpem.com/order";
+
 
 (function () {
+  const SAMPLE_RAW_TX = "cHNidP8BALgCAAAAAAGcNLQPfOgeLHmAL9aD8x2ZXoKLYDwo1EyQWsEhvHrItQEAAAAA/////wIB2ZZIqhJ8l9HAN9Wmk7RP0PAbD5EX5bJzXsg+Dtkj8RgBAAAAAAAPQkAAFgAUtZnvXT8WwuHbM2bzjhsva7dKm+wB2ZZIqhJ8l9HAN9Wmk7RP0PAbD5EX5bJzXsg+Dtkj8RgBAAAAASn2r8AAFgAURiC6Gk38G3uFA7N+nr6s9nVyKvoAAAAAAAEBQgHZlkiqEnyX0cA31aaTtE/Q8BsPkRflsnNeyD4O2SPxGAEAAAABKgXyAAAWABRGILoaTfwbe4UDs36evqz2dXIq+gAAAA==";
+  const API_URL = "https://liquid-taxi.herokuapp.com/order"
   const doc = document
   const rootEl = doc.documentElement
   const body = doc.body
+  const fetch = window.fetch
   //const lightSwitch = doc.getElementById('lights-toggle')
   /* global ScrollReveal */
   const sr = window.sr = ScrollReveal()
@@ -40,36 +42,50 @@ const API_URL = "https://testnet.vulpem.com/order";
 
   function onButtonClik(event) {
     event.preventDefault();
-    const rawtx = document.getElementById("tx-input").value;
-    axios.post(
-      API_URL,
-      {
-        rawtx,
-        satPerByte: 1
+    const psbt = document.getElementById("tx-input").value;
+    console.log(API_URL)
+
+    fetch(API_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
       },
-      {
-        headers: { 'Content-Type': 'application/json' }
+      body: JSON.stringify({ psbt })
+    })
+      .then(response => response.json())
+      .then(res => {
+        if (!res || !res.success || !res.data || !res.data.id)
+          throw new Error("Not a valid PSBT");
+
+        const orderId = res.data.id;
+
+        return fetch(`${API_URL}/${orderId}`)
       })
-      .then(function ({data}) {
-        //handle success
-        const { paymentRequest, hash, amount } = data;
-        const { fees, spread, total } = amount;
+      .then(response => response.json())
+      .then(res => {
+        if (!res || !res.success || !res.data || !res.data.lightningInvoice)
+          throw new Error("System error");
+
+        const orderId = res.data._id;
+        const paymentRequest = res.data.lightningInvoice.payreq;
+        const { fees, spread, total } = res.data.breakdown;
 
         document.getElementById("request-invoice").style.visibility = "hidden";
         document.getElementById("invoice").style.visibility = "visible";
 
         document.getElementById("invoice-input").value = paymentRequest;
-        document.getElementById("fees-text").innerHTML = `fees ${fees} | spread ${spread} | Total ${total}` ;
-        document.getElementById("hash-text").innerHTML = 
-          `<a target="_blank" href="${API_URL}/${hash}">${hash}</a>`;  
-        document.getElementById("qr-image").src = 
+        document.getElementById("fees-text").innerHTML = `fees ${fees} | spread ${spread} | Total ${total}`;
+        document.getElementById("hash-text").innerHTML =
+          `<a target="_blank" href="${API_URL}/${orderId}">${orderId}</a>`;
+        document.getElementById("qr-image").src =
           "https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=" + paymentRequest;
 
       })
-      .catch(function (error) {
-        //handle error
-        console.error(error);
-      });
+      .catch(err => {
+        console.error(err);
+        alert('Something went wrong.')
+      })
+
   }
 
   function onCopyClik(event) {
@@ -90,11 +106,11 @@ const API_URL = "https://testnet.vulpem.com/order";
   function onCopyNodeUriClik(event) {
     event.preventDefault();
     //COpy to clipboard
-    copy("020e86ecfac59831ae80982f6bb0809210a10db640c2bc3f23697b57e7eb9cc4e2@testnet.vulpem.com:9735");
+    copy("02eadbd9e7557375161df8b646776a547c5cbc2e95b3071ec81553f8ec2cea3b8c@18.191.253.246:9735");
   }
 
   function onUseSampleClik(event) {
-    event.preventDefault();    
+    event.preventDefault();
     document.getElementById("tx-input").value = SAMPLE_RAW_TX;
   }
 
