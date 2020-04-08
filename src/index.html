@@ -86,15 +86,7 @@
 								<div class="features-image">
 									<form style="margin:0 auto;">
 										<div>
-											<div id="request-invoice">
-												<div class="field-grouped">
-													<input id="tx-input" class="input" type="text" placeholder="Liquid transaction (psbt format)">
-													<button id='topup-button' class="button button-primary">Top-up</button>
-												</div>
-												<br />
-												<button class="button" id="use-sample-button"> Use a Liquid regtest sample</button>
-											</div>
-											<div id="invoice" style="visibility: hidden;">
+											<div id="invoice" style="display: none;">
 												<input id="qr-image" type="image" alt="Invoice QR Code" disabled>
 												<div class="field-grouped">
 													<input id="invoice-input" readonly class="input" type="text">
@@ -107,6 +99,15 @@
 												<p id="hash-text" class="text-sm mt-0"></p>
 												<p>The resulting PSBT will be under the key <code><i> signedTx </i></code></p>
 											</div>
+											<div id="request-invoice">
+												<div class="field-grouped">
+													<input id="tx-input" class="input" type="text" placeholder="Liquid transaction (psbt format)">
+													<button id='topup-button' class="button button-primary">Top-up</button>
+												</div>
+												<br />
+												<button class="button" id="use-sample-button"> Use a Liquid regtest sample</button>
+											</div>
+											<div id="loader" class="loader" style="display: none;"></div> 
 										</div>
 									</form>
 								</div>

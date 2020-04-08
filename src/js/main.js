@@ -43,7 +43,13 @@ const copy = require('copy-to-clipboard');
   function onButtonClik(event) {
     event.preventDefault();
     const psbt = document.getElementById("tx-input").value;
-    console.log(API_URL)
+
+    if (psbt.length < 30)
+      return alert("Not valid PSBT");
+    
+    //Hide the form and show the loader
+    document.getElementById("request-invoice").style.display = "none";
+    document.getElementById("loader").style.display = "block";
 
     fetch(API_URL, {
       method: 'POST',
@@ -70,8 +76,8 @@ const copy = require('copy-to-clipboard');
         const paymentRequest = res.data.lightningInvoice.payreq;
         const { fees, spread, total } = res.data.breakdown;
 
-        document.getElementById("request-invoice").style.visibility = "hidden";
-        document.getElementById("invoice").style.visibility = "visible";
+        document.getElementById("loader").style.display = "none";
+        document.getElementById("invoice").style.display = "block";
 
         document.getElementById("invoice-input").value = paymentRequest;
         document.getElementById("fees-text").innerHTML = `fees ${fees} | spread ${spread} | Total ${total}`;
@@ -83,7 +89,13 @@ const copy = require('copy-to-clipboard');
       })
       .catch(err => {
         console.error(err);
-        alert('Something went wrong.')
+
+        //Show the form again and hide loader and invoice 
+        document.getElementById("request-invoice").style.display = "block";
+        document.getElementById("loader").style.display = "none";
+        document.getElementById("invoice").style.display = "none";
+
+        alert('Something went wrong. Try again')
       })
 
   }
