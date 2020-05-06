@@ -4,7 +4,7 @@ const copy = require('copy-to-clipboard');
 
 
 (function () {
-  const SAMPLE_RAW_TX = "cHNidP8BALgCAAAAAAGcNLQPfOgeLHmAL9aD8x2ZXoKLYDwo1EyQWsEhvHrItQEAAAAA/////wIB2ZZIqhJ8l9HAN9Wmk7RP0PAbD5EX5bJzXsg+Dtkj8RgBAAAAAAAPQkAAFgAUtZnvXT8WwuHbM2bzjhsva7dKm+wB2ZZIqhJ8l9HAN9Wmk7RP0PAbD5EX5bJzXsg+Dtkj8RgBAAAAASn2r8AAFgAURiC6Gk38G3uFA7N+nr6s9nVyKvoAAAAAAAEBQgHZlkiqEnyX0cA31aaTtE/Q8BsPkRflsnNeyD4O2SPxGAEAAAABKgXyAAAWABRGILoaTfwbe4UDs36evqz2dXIq+gAAAA==";
+  const SAMPLE_RAW_TX = "cHNldP8BALgCAAAAAAGcNLQPfOgeLHmAL9aD8x2ZXoKLYDwo1EyQWsEhvHrItQEAAAAA/////wIB2ZZIqhJ8l9HAN9Wmk7RP0PAbD5EX5bJzXsg+Dtkj8RgBAAAAAAAPQkAAFgAUtZnvXT8WwuHbM2bzjhsva7dKm+wB2ZZIqhJ8l9HAN9Wmk7RP0PAbD5EX5bJzXsg+Dtkj8RgBAAAAASn2r8AAFgAURiC6Gk38G3uFA7N+nr6s9nVyKvoAAAAAAAEBQgHZlkiqEnyX0cA31aaTtE/Q8BsPkRflsnNeyD4O2SPxGAEAAAABKgXyAAAWABRGILoaTfwbe4UDs36evqz2dXIq+gAAAA==";
   const API_URL = "https://liquid-taxi.herokuapp.com/order"
   const doc = document
   const rootEl = doc.documentElement
@@ -95,7 +95,7 @@ const copy = require('copy-to-clipboard');
         document.getElementById("loader").style.display = "none";
         document.getElementById("invoice").style.display = "none";
 
-        alert('Something went wrong. Try again')
+        alert('Something went wrong | ' + err)
       })
 
   }
