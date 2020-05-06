@@ -79,7 +79,7 @@
 						<div class="features-header text-center">
 							<div class="container-sm">
 								<h2 class="section-title mt-0">Liquid bitcoins top-up service</h2>
-								<p class="section-paragraph">Provide a PSBT transaction <strong>base64</strong> encoded spending your own
+								<p class="section-paragraph">Provide a PSET transaction <strong>base64</strong> encoded spending your own
 									Liquid assets. Then pay the invoice using
 									your ⚡️LN wallet.</p>
 								<p>The transaction <strong>MUST</strong> be UNCONFIDENTIAL </p>
@@ -97,11 +97,11 @@
 												<br />
 												<p class="text-sm mt-0">Keep this in order to query the order's status later on:</p>
 												<p id="hash-text" class="text-sm mt-0"></p>
-												<p>The resulting PSBT will be under the key <code><i> signedTx </i></code></p>
+												<p>The resulting PSET will be under the key <code><i> signedTx </i></code></p>
 											</div>
 											<div id="request-invoice">
 												<div class="field-grouped">
-													<input id="tx-input" class="input" type="text" placeholder="Liquid transaction (psbt format)">
+													<input id="tx-input" class="input" type="text" placeholder="Liquid transaction (PSET format)">
 													<button id='topup-button' class="button button-primary">Top-up</button>
 												</div>
 												<br />
